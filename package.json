@@ -1,0 +1,33 @@
+{
+  "name": "email-template",
+  "version": "0.0.0",
+  "description": "Renders email templates",
+  "main": "index.js",
+  "dependencies": {
+    "async": "~0.1.22",
+    "consolidate": "~0.7.0",
+    "juice": ">= 0"
+  },
+  "devDependencies": {
+    "coffee-script": ">= 0",
+    "ejs": "0.7.1",
+    "mocha": ">= 0",
+    "should": ">= 0"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Moveline/email-template.js.git"
+  },
+  "keywords": [
+    "email",
+    "template",
+    "css"
+  ],
+  "author": "Christopher Garvis",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "15effa104b3f6a703f16a2701f84f49896aa925f"
+}
