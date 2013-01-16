@@ -3,35 +3,28 @@ EmailTemplate = require '../src/email-template'
 template = null
 should = require 'should'
 
-describe 'email template', ->
-  describe 'with html', ->
-    before ->
-      template = new EmailTemplate()
-      template
-        .setEngine('ejs')
-        .setHtml('<h1>Hi <%= user %></h1>')
-        .setStyles('h1 { color: pink; }')
+describe 'email', ->
+  html = text = ''
 
-    it 'inlines css', (done) ->
-      template.render {user: 'cgarvis'}, (err, results) ->
-        results.should.have.property('html').include('color: pink')
-        done()
+  before (done) ->
+    template = new EmailTemplate()
+    template
+      .setEngine('ejs')
+      .setHtml('<h1>Hi <%= user %></h1>')
+      .setStyles('h1 { color: pink; }')
+      .setText('Hi <%= user %>')
+      .render {user: 'cgarvis'}, (err, bodies) ->
+        html = bodies.html
+        text = bodies.text
+        done(err)
 
-    it 'sets variables properly', (done) ->
-      template.render {user: 'cgarvis'}, (err, results) ->
-        results.should.have.property('html').include('cgarvis')
-        done()
+  describe 'html version', ->
+    it 'inlines css', ->
+      html.should.include('color: pink')
 
+    it 'sets variables properly', ->
+      html.should.include('cgarvis')
 
-  describe 'with text', ->
-    before ->
-      template = new EmailTemplate()
-      template
-        .setEngine('ejs')
-        .setHtml('<h1>Hi <%= user %></h1>')
-        .setText('Hi <%= user %>')
-
-    it 'sets variables properly', (done) ->
-      template.render {user: 'cgarvis'}, (err, results) ->
-        results.should.have.property('text').include('cgarvis')
-        done()
+  describe 'text version', ->
+    it 'sets variables properly', ->
+      text.should.include('cgarvis')

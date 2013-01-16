@@ -18,7 +18,6 @@ class EmailTemplate
       fn = options
       options = {}
 
-
     async.parallel {
       html: async.apply @renderHtml, options
       text: async.apply @renderText, options
@@ -26,19 +25,23 @@ class EmailTemplate
       fn(err, results)
 
   renderHtml: (options, fn) =>
-    if cons[@engine]?
-      cons[@engine].render @html, options, (err, data) =>
-        if err
-          fn(err, '')
-        else
+    if @html
+      @renderTemplate @html, options, (err, data) =>
+        unless err
           data = juice(data, @css) if @css?
-          fn(null, data)
+        fn(err, data)
     else
-      fn "Could not found engine '#{@engine}'"
+      fn null, ''
 
   renderText: (options, fn) =>
+    if @text
+      @renderTemplate @text, options, fn
+    else
+      fn null, ''
+
+  renderTemplate: (template, options, fn) =>
     if cons[@engine]?
-      cons[@engine].render @text, options, fn
+      cons[@engine].render template, options, fn
     else
       fn "Could not found engine '#{@engine}'"
 
