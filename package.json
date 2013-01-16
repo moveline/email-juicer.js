@@ -1,8 +1,8 @@
 {
-  "name": "email-template",
-  "version": "0.0.1",
-  "description": "Renders email templates",
-  "main": "./lib/email-template.js",
+  "name": "email-juicer",
+  "version": "0.0.2",
+  "description": "Renders email html and text templates",
+  "main": "./lib/email-juicer.js",
   "dependencies": {
     "async": "~0.1.22",
     "consolidate": "~0.7.0",
@@ -15,7 +15,7 @@
     "should": ">= 0"
   },
   "scripts": {
-    "prepublish": "make geberate-js",
+    "prepublish": "make generate-js",
     "postpublish": "make clean",
     "test": "make test"
   },

@@ -1,4 +1,4 @@
-EmailTemplate = require '../src/email-template'
+EmailTemplate = require '../src/email-juicer'
 
 template = null
 should = require 'should'
