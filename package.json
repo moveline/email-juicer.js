@@ -1,12 +1,12 @@
 {
   "name": "email-juicer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Renders email html and text templates",
   "main": "./lib/email-juicer.js",
   "dependencies": {
-    "async": "~0.1.22",
-    "consolidate": "~0.7.0",
-    "juice": ">= 0"
+    "async": "~0.2.6",
+    "consolidate": "~0.8.0",
+    "juice": "~0.2.0"
   },
   "devDependencies": {
     "coffee-script": ">= 0",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Moveline/email-template.js.git"
+    "url": "git://github.com/Moveline/email-juicer.js.git"
   },
   "keywords": [
     "email",
