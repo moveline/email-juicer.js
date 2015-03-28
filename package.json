@@ -6,13 +6,13 @@
   "dependencies": {
     "async": "~0.2.6",
     "consolidate": "~0.8.0",
-    "juice": "~0.3.0"
+    "juice": "~1.0.0"
   },
   "devDependencies": {
-    "coffee-script": ">= 0",
-    "ejs": "0.7.1",
-    "mocha": ">= 0",
-    "should": ">= 0"
+    "coffee-script": "~1.7.1",
+    "ejs": "~0.7.1",
+    "mocha": "~2.2.1",
+    "should": "5.2.0"
   },
   "scripts": {
     "prepublish": "make generate-js",

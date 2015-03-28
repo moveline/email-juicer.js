@@ -28,7 +28,7 @@ class EmailTemplate
     if @html
       @renderTemplate @html, options, (err, data) =>
         unless err
-          data = juice(data, @css) if @css?
+          data = juice(data, {extraCss: @css, applyStyleTags: true}) if @css?
         fn(err, data)
     else
       fn null, ''
