@@ -17,6 +17,7 @@
   "scripts": {
     "prepublish": "make generate-js",
     "postpublish": "make clean",
+    "postinstall": "make generate-js",
     "test": "make test"
   },
   "repository": {
