@@ -20,11 +20,11 @@ describe 'email', ->
 
   describe 'html version', ->
     it 'inlines css', ->
-      html.should.include('color: pink')
+      html.should.containEql('color: pink')
 
     it 'sets variables properly', ->
-      html.should.include('cgarvis')
+      html.should.containEql('cgarvis')
 
   describe 'text version', ->
     it 'sets variables properly', ->
-      text.should.include('cgarvis')
+      text.should.containEql('cgarvis')
