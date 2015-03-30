@@ -1,6 +1,6 @@
 {
   "name": "email-juicer",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Renders email html and text templates",
   "main": "./lib/email-juicer.js",
   "dependencies": {
