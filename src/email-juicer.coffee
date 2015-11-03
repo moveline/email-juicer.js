@@ -39,20 +39,20 @@ class EmailTemplate
   renderHtml: (options, fn) =>
     handleResults = (err, data) =>
       unless err
-        data = juice(data, {extraCss: @css, applyStyleTags: true}) if @css?
+        data = juice(data, {extraCss: @css, applyStyleTags: true, preserveImportant: true}) if @css?
       fn err, data
 
     if @html?
       @renderTemplate @html, options, handleResults
-    else if @htmlFile
+    else if @htmlFile?
       @renderTemplateFromFile @htmlFile, options, handleResults
     else
       fn null, ''
 
   renderText: (options, fn) =>
-    if @text
+    if @text?
       @renderTemplate @text, options, fn
-    else if @textFile
+    else if @textFile?
       @renderTemplateFromFile @textFile, options, fn
     else
       fn null, ''
